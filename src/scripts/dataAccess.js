@@ -1,4 +1,4 @@
-applicationState = {
+const applicationState = {
     // should get:
         // computers:
         // employees:
@@ -33,13 +33,13 @@ export const fetchComputers = () => {
         )
 }
 
-export const fetchLocations = () => {
-    return fetch(`${API}/locations`)
+export const fetchDepartments = () => {
+    return fetch(`${API}/departments`)
         .then(response => response.json())
         .then(
-            (locations) => {
+            (departments) => {
                 // Store the external state in application state
-                applicationState.locations = locations
+                applicationState.departments = departments
             }
         )
 }
@@ -52,4 +52,8 @@ export const getEmployees = () => {
 
 export const getComputers = () => {
     return [...applicationState.computers]
+}
+
+export const getDepartments = () => {
+    return [...applicationState.departments]
 }

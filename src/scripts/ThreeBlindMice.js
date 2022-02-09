@@ -4,6 +4,6 @@ import { EmployeeList } from "./EmployeeList.js";
 
 export const ThreeBlindMice = () => {
     return `<article class="EmployeeList">
-                ${EmployeeList}
+                ${EmployeeList()}
             </article>`
 }
