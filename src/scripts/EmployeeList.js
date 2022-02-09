@@ -1,4 +1,4 @@
-import { getEmployees, getComputers, getDepartments, getLocations } from "./dataAccess.js";
+import { getEmployees, getComputers, getDepartments, getLocations, getCustomers, getEmployeeCustomers } from "./dataAccess.js";
 
 
 // function that builds html string
@@ -8,6 +8,8 @@ export const EmployeeList = () => {
     const computers = getComputers()
     const departments = getDepartments()
     const locations = getLocations()
+    const customers = getCustomers()
+    const employeeCustomers = getEmployeeCustomers()
 
     // initialize empty string
     let html = ""
@@ -44,6 +46,28 @@ export const EmployeeList = () => {
         employeeHTML += `<section class="employee__location">
                             Works at the ${location.name} office
                         </section>`
+
+        // get employee customers
+        // find all employeeCustomer pairs for the employee
+        const matchedEmployeeCustomerPairs = employeeCustomers.filter(employeeCustomer => employeeCustomer.employeeId === employee.id)
+        // create array of customer names
+        const matchedCustomers = matchedEmployeeCustomerPairs.map(match => {
+            // find customer name by customer id for each matching employeeCustomer pair
+            const matchedName = customers.find(customer => customer.id === match.customerId).name
+            return `${matchedName}`
+        })
+
+        // add employee's customers
+        employeeHTML += `<section class="employee__customers">
+                            Has worked for the following customers.
+                            <ul>`
+        
+        employeeHTML += `${
+            matchedCustomers.map(customer => {
+
+                return `<li>${customer}</li>`
+            }).join("")
+        }`
 
         // close employee div tag
         employeeHTML += "</div>"
