@@ -1,4 +1,4 @@
-import { fetchComputers, fetchDepartments, fetchEmployees } from "./dataAccess.js";
+import { fetchComputers, fetchDepartments, fetchEmployees, fetchLocations } from "./dataAccess.js";
 import { ThreeBlindMice } from "./ThreeBlindMice.js";
 
 // find target html tag
@@ -9,6 +9,7 @@ const render = () => {
     fetchEmployees()
     .then(() => fetchComputers())
     .then(() => fetchDepartments())
+    .then(() => fetchLocations())
     .then(() => {
         mainContainer.innerHTML = ThreeBlindMice()
     })
