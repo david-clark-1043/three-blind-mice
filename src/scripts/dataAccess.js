@@ -44,6 +44,17 @@ export const fetchDepartments = () => {
         )
 }
 
+export const fetchLocations = () => {
+    return fetch(`${API}/locations`)
+        .then(response => response.json())
+        .then(
+            (locations) => {
+                // Store the external state in application state
+                applicationState.locations = locations
+            }
+        )
+}
+
 // export copy functions
 
 export const getEmployees = () => {
@@ -56,4 +67,8 @@ export const getComputers = () => {
 
 export const getDepartments = () => {
     return [...applicationState.departments]
+}
+
+export const getLocations = () => {
+    return [...applicationState.locations]
 }

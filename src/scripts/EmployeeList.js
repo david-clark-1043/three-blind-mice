@@ -1,4 +1,4 @@
-import { getEmployees, getComputers, getDepartments } from "./dataAccess.js";
+import { getEmployees, getComputers, getDepartments, getLocations } from "./dataAccess.js";
 
 
 // function that builds html string
@@ -7,6 +7,7 @@ export const EmployeeList = () => {
     const employees = getEmployees()
     const computers = getComputers()
     const departments = getDepartments()
+    const locations = getLocations()
 
     // initialize empty string
     let html = ""
@@ -34,6 +35,14 @@ export const EmployeeList = () => {
         // add employee department
         employeeHTML += `<section class="employee__department">
                             Works in the ${department.name} department
+                        </section>`
+
+        // get employee's location
+        const location = locations.find(location => location.id === employee.locationId)
+
+        // add employee's location
+        employeeHTML += `<section class="employee__location">
+                            Works at the ${location.name} office
                         </section>`
 
         // close employee div tag

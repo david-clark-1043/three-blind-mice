@@ -32,14 +32,16 @@
             "firstName": "Rainu",
             "lastName": "Ittycheriah",
             "computerId": 1,
-            "departmentId": 2
+            "departmentId": 2,
+            "locationId": 1
         },
         {
             "id": 2,
             "firstName": "Saul",
             "lastName": "Goodman",
             "computerId": 2,
-            "departmentId": 4
+            "departmentId": 4,
+            "locationId": 1
             
         },
         {
@@ -47,21 +49,24 @@
             "firstName": "Kim",
             "lastName": "Wexler",
             "computerId": 3,
-            "departmentId": 3
+            "departmentId": 3,
+            "locationId": 1
         },
         {
             "id": 4,
             "firstName": "Chuck",
             "lastName": "McGill",
             "computerId": 4,
-            "departmentId": 1
+            "departmentId": 1,
+            "locationId": 2
         },
         {
             "id": 5,
             "firstName": "Mike",
             "lastName": "Ehrmantraut",
             "computerId": 5,
-            "departmentId": 1
+            "departmentId": 1,
+            "locationId": 3
         }
     ],
     "departments": [
@@ -80,6 +85,20 @@
         {
             "id": 4,
             "name": "Sales"
+        }
+    ],
+    "locations": [
+        {
+            "id": 1,
+            "name": "Nashville"
+        },
+        {
+            "id": 2,
+            "name": "Atlanta"
+        },
+        {
+            "id": 3,
+            "name": "Memphis"
         }
     ]
 }
