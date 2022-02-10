@@ -55,6 +55,28 @@ export const fetchLocations = () => {
         )
 }
 
+export const fetchCustomers = () => {
+    return fetch(`${API}/customers`)
+        .then(response => response.json())
+        .then(
+            (customers) => {
+                // Store the external state in application state
+                applicationState.customers = customers
+            }
+        )
+}
+
+export const fetchEmployeeCustomers = () => {
+    return fetch(`${API}/employeeCustomers`)
+        .then(response => response.json())
+        .then(
+            (employeeCustomers) => {
+                // Store the external state in application state
+                applicationState.employeeCustomers = employeeCustomers
+            }
+        )
+}
+
 // export copy functions
 
 export const getEmployees = () => {
@@ -72,3 +94,12 @@ export const getDepartments = () => {
 export const getLocations = () => {
     return [...applicationState.locations]
 }
+
+export const getEmployeeCustomers = () => {
+    return [...applicationState.employeeCustomers]
+}
+
+export const getCustomers = () => {
+    return [...applicationState.customers]
+}
+
